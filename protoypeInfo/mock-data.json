@@ -1,0 +1,622 @@
+{
+  "_gap_convention": "For each channel: platform_figure + sum(gap_reasons.amount) = our sell_through for the current week (W4).",
+  "_note": "Illustrative data for a prototype. Namak Street is a fictional brand. All figures in Indian rupees, net of discounts and returns, excluding GST, unless a field says otherwise.",
+  "brand": {
+    "name": "Namak Street",
+    "category": "D2C snacks"
+  },
+  "report": {
+    "report_date": "2026-11-23",
+    "report_day": "Monday",
+    "deadline": "10:00 IST",
+    "current_week": "W4",
+    "previous_week": "W3",
+    "week_definition": "Monday to Sunday, IST"
+  },
+  "weeks": [
+    {
+      "id": "W1",
+      "label": "26 Oct – 1 Nov",
+      "start": "2026-10-26",
+      "end": "2026-11-01"
+    },
+    {
+      "id": "W2",
+      "label": "2 – 8 Nov",
+      "start": "2026-11-02",
+      "end": "2026-11-08"
+    },
+    {
+      "id": "W3",
+      "label": "9 – 15 Nov",
+      "start": "2026-11-09",
+      "end": "2026-11-15"
+    },
+    {
+      "id": "W4",
+      "label": "16 – 22 Nov",
+      "start": "2026-11-16",
+      "end": "2026-11-22"
+    }
+  ],
+  "skus": [
+    {
+      "sku": "NS-CHAAT-50",
+      "name": "Chaat Chips 50g",
+      "base_units_per_pack": 1,
+      "avg_net_price": 34
+    },
+    {
+      "sku": "NS-CHAAT-150",
+      "name": "Chaat Chips 150g",
+      "base_units_per_pack": 1,
+      "avg_net_price": 85
+    },
+    {
+      "sku": "NS-NAMKEEN-400",
+      "name": "Namkeen Mix 400g",
+      "base_units_per_pack": 1,
+      "avg_net_price": 152
+    },
+    {
+      "sku": "NS-MAKHANA-60",
+      "name": "Peri Peri Makhana 60g",
+      "base_units_per_pack": 1,
+      "avg_net_price": 84
+    },
+    {
+      "sku": "NS-PEANUT-150",
+      "name": "Masala Peanuts 150g",
+      "base_units_per_pack": 1,
+      "avg_net_price": 64
+    },
+    {
+      "sku": "NS-BHEL-200",
+      "name": "Bhel Mix 200g",
+      "base_units_per_pack": 1,
+      "avg_net_price": 76
+    },
+    {
+      "sku": "NS-RAGI-80",
+      "name": "Ragi Crisps 80g",
+      "base_units_per_pack": 1,
+      "avg_net_price": 51
+    },
+    {
+      "sku": "NS-BOX-3",
+      "name": "Snack Box (3 x Chaat Chips 50g)",
+      "base_units_per_pack": 3,
+      "avg_net_price": 94
+    }
+  ],
+  "cities": [
+    "Delhi",
+    "Gurugram",
+    "Mumbai",
+    "Bengaluru",
+    "Hyderabad",
+    "Pune"
+  ],
+  "city_type_labels": {
+    "customer": "Customer's delivery city",
+    "store": "City of the dark store that served the order",
+    "platform_reported": "City as reported by the platform (basis not documented)"
+  },
+  "channels": [
+    {
+      "id": "shopify",
+      "name": "Shopify",
+      "route": "Hevo connector (Admin GraphQL API)",
+      "status": "synced",
+      "city_type": "customer",
+      "date_basis": "Order created date (createdAt), IST",
+      "platform_figure": 418000,
+      "platform_label": "Shopify net sales for the week (refunds booked on the day processed)",
+      "gap_reasons": [
+        {
+          "amount": 42000,
+          "text": "Shopify deducts refunds on the day they are processed, so its week includes ₹42k of refunds on orders from earlier weeks (W2 ₹30k, W3 ₹12k). We credit those back to the week of the original order."
+        }
+      ],
+      "confidence": {
+        "days_covered": "7/7",
+        "mapped_pct": 100,
+        "tax_basis": "verified (ex-GST from tax lines)",
+        "returns_treatment": "verified",
+        "data_age": "Synced 06:00 today"
+      },
+      "sell_through_by_week": {
+        "W1": 420000,
+        "W2": 410000,
+        "W3": 438000,
+        "W4": 460000
+      },
+      "current_week_by_city": {
+        "Delhi": 92000,
+        "Gurugram": 46000,
+        "Mumbai": 115000,
+        "Bengaluru": 115000,
+        "Hyderabad": 46000,
+        "Pune": 46000
+      },
+      "current_week_by_sku": {
+        "NS-CHAAT-50": {
+          "revenue": 92000,
+          "units": 2706,
+          "base_units": 2706
+        },
+        "NS-CHAAT-150": {
+          "revenue": 69000,
+          "units": 812,
+          "base_units": 812
+        },
+        "NS-NAMKEEN-400": {
+          "revenue": 64400,
+          "units": 424,
+          "base_units": 424
+        },
+        "NS-MAKHANA-60": {
+          "revenue": 73600,
+          "units": 876,
+          "base_units": 876
+        },
+        "NS-PEANUT-150": {
+          "revenue": 46000,
+          "units": 719,
+          "base_units": 719
+        },
+        "NS-BHEL-200": {
+          "revenue": 41400,
+          "units": 545,
+          "base_units": 545
+        },
+        "NS-RAGI-80": {
+          "revenue": 36800,
+          "units": 722,
+          "base_units": 722
+        },
+        "NS-BOX-3": {
+          "revenue": 36800,
+          "units": 391,
+          "base_units": 1173
+        }
+      }
+    },
+    {
+      "id": "amazon",
+      "name": "Amazon",
+      "route": "Hevo connector (SP-API order reports)",
+      "status": "synced",
+      "city_type": "customer",
+      "date_basis": "purchase-date, converted to IST",
+      "platform_figure": 495000,
+      "platform_label": "Seller Central ordered product sales (GST-inclusive, before cancellations)",
+      "gap_reasons": [
+        {
+          "amount": -52000,
+          "text": "Seller Central figure includes GST; we report ex-GST."
+        },
+        {
+          "amount": -13000,
+          "text": "6 orders cancelled after purchase; excluded from net sales."
+        }
+      ],
+      "confidence": {
+        "days_covered": "7/7",
+        "mapped_pct": 100,
+        "tax_basis": "verified (item-tax separate)",
+        "returns_treatment": "verified",
+        "data_age": "Synced 06:00 today"
+      },
+      "sell_through_by_week": {
+        "W1": 380000,
+        "W2": 390000,
+        "W3": 400000,
+        "W4": 430000
+      },
+      "current_week_by_city": {
+        "Delhi": 77400,
+        "Gurugram": 34400,
+        "Mumbai": 94600,
+        "Bengaluru": 103200,
+        "Hyderabad": 60200,
+        "Pune": 60200
+      },
+      "current_week_by_sku": {
+        "NS-CHAAT-50": {
+          "revenue": 86000,
+          "units": 2529,
+          "base_units": 2529
+        },
+        "NS-CHAAT-150": {
+          "revenue": 64500,
+          "units": 759,
+          "base_units": 759
+        },
+        "NS-NAMKEEN-400": {
+          "revenue": 60200,
+          "units": 396,
+          "base_units": 396
+        },
+        "NS-MAKHANA-60": {
+          "revenue": 68800,
+          "units": 819,
+          "base_units": 819
+        },
+        "NS-PEANUT-150": {
+          "revenue": 43000,
+          "units": 672,
+          "base_units": 672
+        },
+        "NS-BHEL-200": {
+          "revenue": 38700,
+          "units": 509,
+          "base_units": 509
+        },
+        "NS-RAGI-80": {
+          "revenue": 34400,
+          "units": 675,
+          "base_units": 675
+        },
+        "NS-BOX-3": {
+          "revenue": 34400,
+          "units": 366,
+          "base_units": 1098
+        }
+      }
+    },
+    {
+      "id": "blinkit",
+      "name": "Blinkit",
+      "route": "Upload of official Seller Hub export",
+      "status": "upload_needed",
+      "city_type": "store",
+      "date_basis": "Platform-reported day (definition not published)",
+      "platform_figure": 546000,
+      "platform_label": "Seller Hub sales summary for the week",
+      "gap_reasons": [
+        {
+          "amount": -6000,
+          "unexplained": true,
+          "text": "Unexplained difference, within the ±2% tolerance. Tax basis of the export not yet verified."
+        }
+      ],
+      "confidence": {
+        "days_covered": "7/7 after corrected upload",
+        "mapped_pct": null,
+        "_mapped_pct_note": "Computed at runtime: (sell_through W4 - unmapped revenue still in the queue) / sell_through W4. 93.0% before mapping, 99.6% after (Festive Pack, ₹2,000, left unmapped).",
+        "tax_basis": "unverified",
+        "returns_treatment": "unverified",
+        "data_age": "Uploaded today"
+      },
+      "sell_through_by_week": {
+        "W1": 500000,
+        "W2": 510000,
+        "W3": 520000,
+        "W4": 540000
+      },
+      "sell_in_po_by_week": {
+        "W1": 450000,
+        "W2": 480000,
+        "W3": 460000,
+        "W4": 745000
+      },
+      "current_week_by_city": {
+        "Delhi": 162000,
+        "Gurugram": 0,
+        "Mumbai": 129600,
+        "Bengaluru": 140400,
+        "Hyderabad": 54000,
+        "Pune": 54000
+      },
+      "current_week_by_sku": {
+        "NS-CHAAT-50": {
+          "revenue": 106000,
+          "units": 3118,
+          "base_units": 3118
+        },
+        "NS-CHAAT-150": {
+          "revenue": 81000,
+          "units": 953,
+          "base_units": 953
+        },
+        "NS-NAMKEEN-400": {
+          "revenue": 75600,
+          "units": 497,
+          "base_units": 497
+        },
+        "NS-MAKHANA-60": {
+          "revenue": 86400,
+          "units": 1029,
+          "base_units": 1029
+        },
+        "NS-PEANUT-150": {
+          "revenue": 54000,
+          "units": 844,
+          "base_units": 844
+        },
+        "NS-BHEL-200": {
+          "revenue": 48600,
+          "units": 639,
+          "base_units": 639
+        },
+        "NS-RAGI-80": {
+          "revenue": 43200,
+          "units": 847,
+          "base_units": 847
+        },
+        "NS-BOX-3": {
+          "revenue": 43200,
+          "units": 460,
+          "base_units": 1380
+        }
+      }
+    },
+    {
+      "id": "zepto",
+      "name": "Zepto",
+      "route": "Upload of official Brand Portal export",
+      "status": "validated",
+      "city_type": "platform_reported",
+      "date_basis": "Platform-reported day",
+      "platform_figure": 290000,
+      "platform_label": "Brand Portal sales for the week",
+      "gap_reasons": [],
+      "confidence": {
+        "days_covered": "7/7",
+        "mapped_pct": 100,
+        "tax_basis": "unverified",
+        "returns_treatment": "unverified",
+        "data_age": "Uploaded 08:40 today"
+      },
+      "sell_through_by_week": {
+        "W1": 260000,
+        "W2": 270000,
+        "W3": 280000,
+        "W4": 290000
+      },
+      "current_week_by_city": {
+        "Delhi": 52200,
+        "Gurugram": 20300,
+        "Mumbai": 87000,
+        "Bengaluru": 72500,
+        "Hyderabad": 29000,
+        "Pune": 29000
+      },
+      "current_week_by_sku": {
+        "NS-CHAAT-50": {
+          "revenue": 58000,
+          "units": 1706,
+          "base_units": 1706
+        },
+        "NS-CHAAT-150": {
+          "revenue": 43500,
+          "units": 512,
+          "base_units": 512
+        },
+        "NS-NAMKEEN-400": {
+          "revenue": 40600,
+          "units": 267,
+          "base_units": 267
+        },
+        "NS-MAKHANA-60": {
+          "revenue": 46400,
+          "units": 552,
+          "base_units": 552
+        },
+        "NS-PEANUT-150": {
+          "revenue": 29000,
+          "units": 453,
+          "base_units": 453
+        },
+        "NS-BHEL-200": {
+          "revenue": 26100,
+          "units": 343,
+          "base_units": 343
+        },
+        "NS-RAGI-80": {
+          "revenue": 23200,
+          "units": 455,
+          "base_units": 455
+        },
+        "NS-BOX-3": {
+          "revenue": 23200,
+          "units": 247,
+          "base_units": 741
+        }
+      }
+    },
+    {
+      "id": "instamart",
+      "name": "Swiggy Instamart",
+      "route": "Upload of official Brand Portal export",
+      "status": "missing",
+      "city_type": "store",
+      "date_basis": "Platform-reported day",
+      "platform_figure": null,
+      "platform_label": "Brand Portal sales dashboard",
+      "gap_reasons": [],
+      "confidence": {
+        "days_covered": "0/7 (report not uploaded)",
+        "mapped_pct": null,
+        "tax_basis": "unverified",
+        "returns_treatment": "unverified",
+        "data_age": "Last upload 16 Nov"
+      },
+      "sell_through_by_week": {
+        "W1": 170000,
+        "W2": 180000,
+        "W3": 190000,
+        "W4": null
+      }
+    }
+  ],
+  "headline": {
+    "consumer_sales_current_week_4_channels": 1720000,
+    "consumer_sales_previous_week_4_channels_restated": 1638000,
+    "wow_pct": 5.0,
+    "channels_included": [
+      "shopify",
+      "amazon",
+      "blinkit",
+      "zepto"
+    ],
+    "channels_missing": [
+      "instamart"
+    ],
+    "comparison_note": "Week-on-week compares the same four channels in both weeks. Instamart's previous week (₹1,90,000) is excluded from both sides."
+  },
+  "po_trap": {
+    "channel": "blinkit",
+    "sell_in_current": 745000,
+    "sell_in_previous": 460000,
+    "sell_in_wow_pct": 62.0,
+    "sell_through_current": 540000,
+    "sell_through_previous": 520000,
+    "sell_through_wow_pct": 3.8,
+    "explanation": "Blinkit placed a large restock purchase order this week. That is stock moving into Blinkit's warehouses, not consumers buying more.",
+    "old_excel_view": {
+      "method": "Adds Blinkit purchase-order invoices to consumer sales from other channels, and uses last Monday's un-restated Shopify figure",
+      "total_current": 1925000,
+      "total_previous": 1590000,
+      "wow_pct": 21.1,
+      "blinkit_wow_pct": 62.0
+    }
+  },
+  "restatement": {
+    "channel": "shopify",
+    "week": "W3",
+    "as_sent": 450000,
+    "restated": 438000,
+    "change": -12000,
+    "reason": "Refunds processed this week on 3 orders placed in W3 (₹12,000). Also ₹30,000 of refunds credited back to W2."
+  },
+  "blinkit_upload": {
+    "file_name": "blinkit_sales_16-22nov.xlsx",
+    "first_attempt": {
+      "rows": 2450,
+      "required_columns_found": "8/8",
+      "missing_days": [
+        "2026-11-19"
+      ],
+      "duplicate_rows": 0,
+      "unexpected_columns": [
+        "Promo Tag"
+      ],
+      "status": "needs_attention"
+    },
+    "corrected_file": {
+      "file_name": "blinkit_sales_16-22nov_v2.xlsx",
+      "rows": 2804,
+      "required_columns_found": "8/8",
+      "missing_days": [],
+      "duplicate_rows": 0,
+      "status": "validated"
+    },
+    "unmapped_items": [
+      {
+        "platform_item_id": "48213",
+        "platform_name": "Masala Chips 50g",
+        "suggested_sku": "NS-CHAAT-50",
+        "revenue": 4800
+      },
+      {
+        "platform_item_id": "48214",
+        "platform_name": "Chaat Chip 150 gm",
+        "suggested_sku": "NS-CHAAT-150",
+        "revenue": 4200
+      },
+      {
+        "platform_item_id": "50117",
+        "platform_name": "Namkeen Mixture 400g",
+        "suggested_sku": "NS-NAMKEEN-400",
+        "revenue": 3900
+      },
+      {
+        "platform_item_id": "50190",
+        "platform_name": "PeriPeri Makhana 60 g",
+        "suggested_sku": "NS-MAKHANA-60",
+        "revenue": 3600
+      },
+      {
+        "platform_item_id": "50191",
+        "platform_name": "Peri Peri Makhana 60g (new pack)",
+        "suggested_sku": "NS-MAKHANA-60",
+        "revenue": 3100
+      },
+      {
+        "platform_item_id": "51002",
+        "platform_name": "Masala Peanut 150g",
+        "suggested_sku": "NS-PEANUT-150",
+        "revenue": 3000
+      },
+      {
+        "platform_item_id": "51110",
+        "platform_name": "Bhel 200g",
+        "suggested_sku": "NS-BHEL-200",
+        "revenue": 2900
+      },
+      {
+        "platform_item_id": "51205",
+        "platform_name": "Ragi Crisp 80g",
+        "suggested_sku": "NS-RAGI-80",
+        "revenue": 2800
+      },
+      {
+        "platform_item_id": "51206",
+        "platform_name": "Ragi Crisps 80gm",
+        "suggested_sku": "NS-RAGI-80",
+        "revenue": 2600
+      },
+      {
+        "platform_item_id": "52001",
+        "platform_name": "Snack Box Chaat x3",
+        "suggested_sku": "NS-BOX-3",
+        "revenue": 2700
+      },
+      {
+        "platform_item_id": "52002",
+        "platform_name": "Chaat Chips Combo 3 Pack",
+        "suggested_sku": "NS-BOX-3",
+        "revenue": 2400
+      },
+      {
+        "platform_item_id": "52300",
+        "platform_name": "Namak Street Festive Pack",
+        "suggested_sku": "NEEDS_NEW_SKU",
+        "revenue": 2000
+      }
+    ],
+    "unmapped_revenue_total": 38000,
+    "required_columns": [
+      "Date",
+      "Item ID",
+      "Item Name",
+      "City",
+      "Units Sold",
+      "Sales Value",
+      "Brand",
+      "Category"
+    ]
+  },
+  "trust_capture": {
+    "options": [
+      "I'd act on this",
+      "Needs a recheck"
+    ],
+    "history": [
+      {
+        "week": "W1",
+        "value": "Needs a recheck"
+      },
+      {
+        "week": "W2",
+        "value": "Needs a recheck"
+      },
+      {
+        "week": "W3",
+        "value": "I'd act on this"
+      }
+    ]
+  }
+}
