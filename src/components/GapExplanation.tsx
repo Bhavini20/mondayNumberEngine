@@ -54,7 +54,9 @@ export function GapExplanation({
           </div>
 
           <p className="gap-verdict">
-            {g.unexplained === 0 ? (
+            {g.matches && g.basisUnverified ? (
+              <>Matches the platform’s figure (basis unverified).</>
+            ) : g.unexplained === 0 ? (
               <>
                 <Pill tone="ok">Fully explained</Pill>
                 {g.matches

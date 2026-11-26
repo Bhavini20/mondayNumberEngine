@@ -25,6 +25,11 @@ export function ChannelGrowth({ input, onWhy }: { input: EngineInput; onWhy: (id
                 <span className="city-tag" title={r.cityTypeLabel}>
                   {CITY_TYPE_SHORT[r.cityType]}
                 </span>
+                {r.basisUnverified && (
+                  <span className="tagchip tag-amber" title="Tax and returns basis not yet verified; platform-reported">
+                    basis unverified
+                  </span>
+                )}
               </div>
               <div className="grow-num">
                 {r.ready ? rupees(r.current!) : <Pill tone={r.tone}>{r.statusLabel}</Pill>}

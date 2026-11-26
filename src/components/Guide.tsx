@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { data } from '../data';
+import { data, NEEDS_NEW_SKU } from '../data';
 import { headline, poTrap, restatement, unmapped, type EngineInput } from '../engine';
 import { lakhs, pct, rupees } from '../engine/format';
 import { useDemo, type Action, type DemoState } from '../state/demoStore';
@@ -52,7 +52,7 @@ function buildSteps(): Step[] {
     {
       where: 'Analyst · 9:00',
       title: 'Map items',
-      todo: `${rupees(data.blinkit_upload.unmapped_revenue_total)} of Blinkit sales don’t map to a product yet. Accept all suggestions, then Leave unmapped on the Festive Pack.`,
+      todo: `${rupees(data.blinkit_upload.unmapped_revenue_total)} of Blinkit sales don’t map to a product yet. Accept the ${data.blinkit_upload.unmapped_items.filter((i) => i.suggested_sku !== NEEDS_NEW_SKU).length} suggestions, then Leave unmapped on the Festive Pack.`,
       say: 'What we can’t standardise, we show. That leftover will appear in the founder’s report, not disappear.',
       targets: ['accept-all', 'leave-unmapped', 'map-items', 'nav-mapping'],
       nav: { type: 'step', step: 'mapping' },

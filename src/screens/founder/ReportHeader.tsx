@@ -31,7 +31,7 @@ export function ReportHeader({ input }: { input: EngineInput }) {
       <div className={`strip${h.incomplete ? ' is-incomplete' : ''}`}>
         <p className="strip-text">{h.strip.join(' · ')}</p>
         <p className="strip-note">
-          {h.comparisonNote} {h.exclusionNote}
+          {h.comparisonNote} {h.exclusionNote} {h.basisNote}
         </p>
       </div>
 

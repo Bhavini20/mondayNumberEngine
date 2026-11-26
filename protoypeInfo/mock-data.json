@@ -136,8 +136,8 @@
         "Gurugram": 46000,
         "Mumbai": 115000,
         "Bengaluru": 115000,
-        "Hyderabad": 46000,
-        "Pune": 46000
+        "Hyderabad": 50600,
+        "Pune": 41400
       },
       "current_week_by_sku": {
         "NS-CHAAT-50": {
@@ -219,8 +219,8 @@
         "Gurugram": 34400,
         "Mumbai": 94600,
         "Bengaluru": 103200,
-        "Hyderabad": 60200,
-        "Pune": 60200
+        "Hyderabad": 64500,
+        "Pune": 55900
       },
       "current_week_by_sku": {
         "NS-CHAAT-50": {
@@ -306,8 +306,8 @@
         "Gurugram": 0,
         "Mumbai": 129600,
         "Bengaluru": 140400,
-        "Hyderabad": 54000,
-        "Pune": 54000
+        "Hyderabad": 59400,
+        "Pune": 48600
       },
       "current_week_by_sku": {
         "NS-CHAAT-50": {
@@ -380,8 +380,8 @@
         "Gurugram": 20300,
         "Mumbai": 87000,
         "Bengaluru": 72500,
-        "Hyderabad": 29000,
-        "Pune": 29000
+        "Hyderabad": 31900,
+        "Pune": 26100
       },
       "current_week_by_sku": {
         "NS-CHAAT-50": {
@@ -516,7 +516,7 @@
     "unmapped_items": [
       {
         "platform_item_id": "48213",
-        "platform_name": "Masala Chips 50g",
+        "platform_name": "NS Chaat Chips 50 gm",
         "suggested_sku": "NS-CHAAT-50",
         "revenue": 4800
       },

@@ -16,7 +16,7 @@ import {
   type WeekId,
   type CityType,
 } from '../data';
-import { rupees, dayLabel } from './format';
+import { rupees, dayLabel, listJoin } from './format';
 
 // ---------- Inputs (the parts of demo state that change numbers) ----------
 
@@ -44,6 +44,12 @@ const NUMBER_WORDS = ['no', 'one', 'two', 'three', 'four', 'five'];
 export const numberWord = (n: number) => NUMBER_WORDS[n] ?? String(n);
 
 const wow = (cur: number, prev: number) => (cur / prev - 1) * 100;
+
+/** Tax or returns treatment not verified: the platform's own basis is used as reported. */
+export function basisUnverified(id: ChannelId): boolean {
+  const c = channelById[id].confidence;
+  return !c.tax_basis.startsWith('verified') || !c.returns_treatment.startsWith('verified');
+}
 const st = (id: ChannelId, w: WeekId) => channelById[id].sell_through_by_week[w];
 
 export function allSkus(input: EngineInput): Sku[] {
@@ -220,10 +226,16 @@ export function headline(input: EngineInput) {
       ` ${excludedPrev.length > 1 ? 'are' : 'is'} excluded from both sides.`
     : '';
 
+  const unverified = included.filter((r) => basisUnverified(r.id)).map((r) => r.name);
+  const basisNote = unverified.length
+    ? `${listJoin(unverified)}: tax and returns basis unverified (platform-reported).`
+    : '';
+
   return {
     current,
     previous,
     wowPct: wow(current, previous),
+    basisNote,
     included: included.map((r) => r.id),
     notReady: notReady.map((r) => ({ id: r.id, name: r.name, phrase: r.gapPhrase! })),
     incomplete: notReady.length > 0,
@@ -260,6 +272,7 @@ export function channelGrowth(input: EngineInput) {
       trend: shownTrend,
       cityType: ch.city_type,
       cityTypeLabel: data.city_type_labels[ch.city_type],
+      basisUnverified: ch.status !== 'missing' && basisUnverified(r.id),
       sellIn,
     };
   });
@@ -330,6 +343,7 @@ export function gapCheck(id: ChannelId, input: EngineInput) {
     platformLabel: ch.platform_label,
     confidence: r.confidence,
     restatement: data.restatement.channel === id ? restatement() : null,
+    basisUnverified: basisUnverified(id),
   };
 
   if (ch.status === 'missing') {

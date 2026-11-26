@@ -49,7 +49,7 @@ export function UploadValidate() {
             <Eyebrow num="02">Upload</Eyebrow>
             <h2>Upload Blinkit’s report</h2>
             <p className="lede">
-              Blinkit has no API, so its sales come from the official Seller Hub export. Every file is checked before it
+              Blinkit has no public brand sales API, so its sales come from the official Seller Hub export. Every file is checked before it
               counts.
             </p>
           </div>
@@ -126,7 +126,7 @@ export function UploadValidate() {
         </ul>
 
         <div className="preview">
-          <p className="small muted">Preview: first items in the file, totals for the week</p>
+          <p className="small muted">Preview: first rows in the file</p>
           <div className="table-wrap">
             <table>
               <thead>

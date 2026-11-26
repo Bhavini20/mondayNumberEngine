@@ -141,7 +141,8 @@ export function MappingQueue() {
 
   const pending = items.filter((i) => input.items[i.platform_item_id].status === 'pending');
   const resolved = items.filter((i) => input.items[i.platform_item_id].status !== 'pending');
-  const hasSuggestions = pending.some((i) => i.suggested_sku !== NEEDS_NEW_SKU);
+  const suggestionCount = pending.filter((i) => i.suggested_sku !== NEEDS_NEW_SKU).length;
+  const hasSuggestions = suggestionCount > 0;
   const mappedShare = ((u.startingRevenue - u.revenue) / u.startingRevenue) * 100;
 
   return (
@@ -169,7 +170,10 @@ export function MappingQueue() {
           <span style={{ width: `${mappedShare}%` }} />
         </div>
         <p className="small muted">
-          {u.itemCount} of {u.totalItems} items unmapped · started at {rupees(u.startingRevenue)}
+          {u.pendingCount
+            ? `${u.pendingCount} item${u.pendingCount === 1 ? '' : 's'} to review`
+            : 'Nothing left to review'}{' '}
+          · started at {rupees(u.startingRevenue)}
         </p>
       </div>
 
@@ -179,7 +183,7 @@ export function MappingQueue() {
             <h3>To review ({pending.length})</h3>
             {hasSuggestions && (
               <button data-guide="accept-all" className="btn btn-teal btn-sm" onClick={() => dispatch({ type: 'acceptAll' })}>
-                Accept all suggestions
+                Accept {suggestionCount} suggestion{suggestionCount === 1 ? '' : 's'}
               </button>
             )}
           </div>
