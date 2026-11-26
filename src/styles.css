@@ -2500,9 +2500,10 @@ input {
   background: repeating-linear-gradient(-45deg, rgba(251, 241, 220, 0.75) 0 6px, transparent 6px 12px);
 }
 .table-note {
+  margin-top: 12px;
   font-size: 13px;
+  line-height: 1.6;
   color: var(--ink-3);
-  max-width: 80ch;
 }
 
 /* Trust */
