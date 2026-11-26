@@ -2053,6 +2053,11 @@ input {
 .waiting .checklist {
   width: 100%;
 }
+.waiting-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
 .jump-note {
   align-self: flex-start;
   display: inline-flex;

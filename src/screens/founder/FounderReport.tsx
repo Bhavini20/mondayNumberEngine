@@ -34,9 +34,18 @@ export function FounderReport() {
               </li>
             ))}
           </ul>
-          <button className="btn btn-secondary" onClick={() => dispatch({ type: 'step', step: 'board' })}>
-            Open the analyst’s view
-          </button>
+          <div className="waiting-actions">
+            <button className="btn btn-teal" onClick={() => dispatch({ type: 'jump' })}>
+              See the report with default data
+            </button>
+            <button className="btn btn-outline" onClick={() => dispatch({ type: 'step', step: 'board' })}>
+              Open the analyst’s view
+            </button>
+          </div>
+          <p className="small muted">
+            Default data fills in the usual analyst steps for you: the corrected Blinkit upload, mapped items, and the
+            report sent with Instamart missing.
+          </p>
         </div>
       </div>
     );
